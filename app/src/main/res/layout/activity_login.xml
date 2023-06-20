@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginActivity">
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter UserName"
+        android:textColorHint="@android:color/black"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:layout_margin="10dp"
+        android:textColorHint="@android:color/black"
+        />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:text="Login"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/contactDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Developer"
+        android:layout_below="@id/btnSubmit"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/visitWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visit Website"
+        android:layout_below="@id/contactDeveloper"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/sendEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Email"
+        android:layout_below="@id/visitWebsite"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        />
+
+</RelativeLayout>

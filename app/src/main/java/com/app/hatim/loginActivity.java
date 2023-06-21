@@ -2,7 +2,9 @@ package com.app.hatim;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,9 @@ public class loginActivity extends AppCompatActivity {
     String username,password;
     TextView _contactDeveloper,_visitWebsite,_sendEmail;
 
+    public static final String myPref= "myPrefs";
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,18 @@ public class loginActivity extends AppCompatActivity {
         _contactDeveloper = findViewById(R.id.contactDeveloper);
         _visitWebsite = findViewById(R.id.visitWebsite);
         _sendEmail = findViewById(R.id.sendEmail);
+
+
+        sharedPreferences = getSharedPreferences(myPref, Context.MODE_PRIVATE);
+
+        String check = checkUserLogin();
+        if(check != "" || check.length() > 0)
+        {
+            Intent red = new Intent(loginActivity.this,profileActivity.class);
+            startActivity(red);
+            finish();
+        }
+
 
         _btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +63,11 @@ public class loginActivity extends AppCompatActivity {
                     //To Display the login message to user
                     Snackbar snackbar = Snackbar.make(getCurrentFocus(),"UserName: " + username,Snackbar.LENGTH_LONG);
                     snackbar.show();
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("username",username);
+                    editor.commit();
+
 
                     //To move from one page to another
                     Intent i = new Intent(loginActivity.this, profileActivity.class);
@@ -98,5 +120,10 @@ public class loginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String checkUserLogin() {
+        String uname = sharedPreferences.getString("username","");
+        return uname;
     }
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userProfile">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:id="@+id/profileHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!-- 1st Block -->
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_margin="10dp"
+                />
+            <!-- 1st Block -->
+
+            <!-- 2nd Block -->
+            <LinearLayout
+                android:id="@+id/profileDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hatim Juzer Kanorwala"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:id="@+id/userMobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+91 8097922009"
+                    />
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hatimjuzerkanorwala@gmail.com"
+                    />
+            </LinearLayout>
+            <!-- 2nd Block -->
+
+            <!-- 3rd Block -->
+            <LinearLayout
+                android:id="@+id/profileTag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="end|right"
+                android:gravity="end"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/right_arrow"
+                    android:layout_gravity="center_vertical|end"
+                />
+            </LinearLayout>
+            <!-- 3rd Block -->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

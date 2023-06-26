@@ -1,13 +1,16 @@
 package com.app.hatim;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,7 +71,6 @@ public class loginActivity extends AppCompatActivity {
                     editor.putString("username",username);
                     editor.commit();
 
-
                     //To move from one page to another
                     Intent i = new Intent(loginActivity.this, profileActivity.class);
                     i.putExtra("username",username);
@@ -78,7 +80,13 @@ public class loginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(loginActivity.this,"Failed to Login",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(loginActivity.this,"Failed to Login",Toast.LENGTH_SHORT).show();
+
+                    //Alert Dialog Box to perform some action
+                    //displayAlert();
+
+                    //Alert Dialog Box with customized Message
+                    customizedMessageDialogBox();
                 }
 
 
@@ -122,8 +130,53 @@ public class loginActivity extends AppCompatActivity {
 
     }
 
+    private void customizedMessageDialogBox() {
+        AlertDialog.Builder builder =new AlertDialog.Builder(loginActivity.this);
+        builder.setCancelable(false);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.popupmessage,null);
+        TextView _btnClose = view.findViewById(R.id.btnClose);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        _btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
     private String checkUserLogin() {
         String uname = sharedPreferences.getString("username","");
         return uname;
+    }
+
+    protected void displayAlert()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(loginActivity.this);
+        builder.setTitle("Fail");
+        builder.setMessage("Login Failed, Enter Proper Details");
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.error_icon);
+        builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+//                    builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            Toast.makeText(loginActivity.this, "Negative Button Clicked", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                    builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            Toast.makeText(loginActivity.this, "Neutral Button Cliked", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+        builder.show();
     }
 }

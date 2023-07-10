@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userList">
+
+    <Button
+        android:id="@+id/user_btnPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_toRightOf="@id/user_selectedtItem"
+        />
+    <TextView
+        android:id="@+id/user_selectedtItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_vertical"
+        android:padding="10dp"
+        android:text="Selected Item: "
+        android:layout_marginTop="10dp"
+        />
+    <ListView
+        android:id="@+id/user_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_btnPopup"
+        android:layout_marginTop="10dp"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textSize="20dp"
+        android:textAlignment="textEnd"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:background="#3600CC"
+        android:textColor="@android:color/white"
+        />
+
+    <EditText
+        android:id="@+id/add_subjectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnClose"
+        android:hint="Enter Subject Name"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:id="@+id/add_subjectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_subjectName"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Add" />
+
+
+</RelativeLayout>
